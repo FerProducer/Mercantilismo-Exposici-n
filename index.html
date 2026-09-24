@@ -32,7 +32,7 @@
         body {
             background-color: #020617;
             color: #f8fafc;
-            overflow: hidden; /* Prevent scrolling during presentation */
+            overflow-x: hidden; /* Ajustado para permitir scroll vertical responsive nativo */
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
@@ -148,27 +148,23 @@
         }
     </style>
 </head>
-<body class="antialiased relative h-screen w-screen selection:bg-brand-gold selection:text-white">
+<body class="antialiased relative min-h-screen w-screen selection:bg-brand-gold selection:text-white">
 
-    <!-- Presentation Background Decoration -->
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
         <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-gold opacity-10 rounded-full blur-[120px]"></div>
         <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-brand-accent opacity-10 rounded-full blur-[150px]"></div>
     </div>
 
-    <!-- Top Progress Bar -->
     <div class="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div id="progress-bar" class="h-full bg-brand-gold w-0"></div>
     </div>
 
-    <!-- Global Header (Slide Numbers) -->
     <div class="fixed top-4 right-6 z-40 text-gray-400 font-mono text-sm tracking-widest hidden md:block">
         <span id="current-slide-display">1</span> / <span id="total-slides-display">8</span>
     </div>
 
-    <main id="presentation-container" class="relative w-full h-full z-10 flex items-center justify-center pt-8 pb-20 px-4 sm:px-8 md:px-16 lg:px-24">
+    <main id="presentation-container" class="relative w-full h-screen z-10 flex items-center justify-center pt-16 pb-24 px-4 sm:px-8 md:px-16 lg:px-24 overflow-y-auto">
         
-        <!-- SLIDE 1: Title -->
         <div class="slide active items-center justify-center text-center">
             <div class="inline-flex items-center space-x-2 bg-gray-800/50 rounded-full px-4 py-2 mb-8 border border-gray-700">
                 <span class="w-3 h-3 rounded-full bg-brand-gold animate-pulse"></span>
@@ -201,7 +197,6 @@
             </div>
         </div>
 
-        <!-- SLIDE 2: Mercantilismo Intro -->
         <div class="slide items-start justify-center">
             <div class="mb-4">
                 <span class="inline-block bg-brand-gold text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2 shadow-[0_0_10px_rgba(217,119,6,0.5)]">
@@ -233,7 +228,6 @@
             </div>
         </div>
 
-        <!-- SLIDE 3: Mercantilismo Principios -->
         <div class="slide items-start justify-center">
             <div class="mb-6 w-full">
                 <span class="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
@@ -244,7 +238,6 @@
             </div>
             
             <div class="grid sm:grid-cols-2 gap-6 w-full mt-4">
-                <!-- Card 1 -->
                 <div class="bg-gray-800/40 p-6 rounded-xl border border-gray-700 hover:border-brand-gold transition duration-300 group">
                     <i class="fas fa-coins text-3xl text-brand-gold mb-4 group-hover:scale-110 transition"></i>
                     <h3 class="text-xl font-bold text-white mb-2">Acumulación de Riqueza</h3>
@@ -252,7 +245,6 @@
                         El objetivo supremo del Estado es atesorar bullion (oro y plata). Se prohíbe la exportación de metales preciosos.
                     </p>
                 </div>
-                <!-- Card 2 -->
                 <div class="bg-gray-800/40 p-6 rounded-xl border border-gray-700 hover:border-brand-gold transition duration-300 group">
                     <i class="fas fa-shield-alt text-3xl text-brand-gold mb-4 group-hover:scale-110 transition"></i>
                     <h3 class="text-xl font-bold text-white mb-2">Proteccionismo</h3>
@@ -260,7 +252,6 @@
                         Altos aranceles a las importaciones de bienes manufacturados. Fomento de exportaciones mediante subsidios estatales.
                     </p>
                 </div>
-                <!-- Card 3 -->
                 <div class="bg-gray-800/40 p-6 rounded-xl border border-gray-700 hover:border-brand-gold transition duration-300 group">
                     <i class="fas fa-balance-scale text-3xl text-brand-gold mb-4 group-hover:scale-110 transition"></i>
                     <h3 class="text-xl font-bold text-white mb-2">Balanza Comercial Positiva</h3>
@@ -268,7 +259,6 @@
                         Exportar más de lo que se importa. El Estado debe intervenir activamente para mantener esta balanza a favor.
                     </p>
                 </div>
-                <!-- Card 4 -->
                 <div class="bg-gray-800/40 p-6 rounded-xl border border-gray-700 hover:border-brand-gold transition duration-300 group">
                     <i class="fas fa-industry text-3xl text-brand-gold mb-4 group-hover:scale-110 transition"></i>
                     <h3 class="text-xl font-bold text-white mb-2">Intervencionismo Estatal</h3>
@@ -279,19 +269,16 @@
             </div>
         </div>
 
-       <!-- SLIDE 4: Figuras Clave Mercantilismo -->
-    <div class="slide items-start justify-center">
+       <div class="slide items-start justify-center">
         <div class="mb-6">
             <span class="inline-block bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
-                
-              Autores Principales
+                Autores Principales
             </span>
             <h2 class="text-4xl md:text-5xl font-serif font-bold text-white">Figuras Históricas</h2>
             <p class="text-gray-400 mt-2">Haz clic en las imágenes para conocer su legado.</p>
         </div>
         
         <div class="grid md:grid-cols-2 gap-8 w-full">
-            <!-- Personaje 1 -->
             <div class="figure-card h-80 bg-gray-800 relative overflow-hidden rounded-xl cursor-pointer" onclick="openModal('Jean-Baptiste Colbert', 'Ministro de Finanzas del Rey Luis XIV de Francia. Es el principal exponente del mercantilismo francés, a menudo llamado \'Colbertismo\'. Promovió la manufactura nacional, creó monopolios comerciales y estableció un riguroso sistema proteccionista para evitar la salida de riqueza de Francia.', 'https://upload.wikimedia.org/wikipedia/commons/7/76/Colbert1666.jpg')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Colbert1666.jpg" alt="Colbert" class="w-full h-full object-cover object-center absolute inset-0">
                 <div class="figure-overlay absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent p-6 flex flex-col justify-end transition-opacity duration-300">
@@ -304,7 +291,6 @@
                 </div>
             </div>
 
-            <!-- Personaje 2 -->
             <div class="figure-card h-80 bg-gray-800 relative overflow-hidden rounded-xl cursor-pointer" onclick="openModal('Thomas Mun', 'Economista inglés y director de la Compañía Británica de las Indias Orientales. En su obra póstuma \'La riqueza de Inglaterra por el comercio exterior\' (1664), articuló formalmente que la única forma de enriquecer un reino sin minas propias era a través del superávit comercial continuo.', 'https://i0.wp.com/otrarepublica.com/wp-content/uploads/2022/01/thomas-mun-e1643487439708.jpg?resize=570%2C721&ssl=1')">
                 <img src="https://i0.wp.com/otrarepublica.com/wp-content/uploads/2022/01/thomas-mun-e1643487439708.jpg?resize=570%2C721&ssl=1" alt="Thomas Mun" class="w-full h-full object-cover object-top absolute inset-0">
                 <div class="figure-overlay absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent p-6 flex flex-col justify-end transition-opacity duration-300">
@@ -319,7 +305,6 @@
         </div>
     </div>
 
-        <!-- SLIDE 5: Fisiocracia Intro -->
         <div class="slide items-start justify-center">
              <div class="mb-4">
                 <span class="inline-block bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2 shadow-[0_0_10px_rgba(13,148,136,0.5)]">
@@ -351,7 +336,6 @@
             </div>
         </div>
 
-        <!-- SLIDE 6: Fisiocracia Principios -->
         <div class="slide items-start justify-center">
              <div class="mb-6 w-full">
                 <span class="inline-block bg-brand-gold text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
@@ -361,7 +345,6 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-6 w-full mt-4">
-                <!-- Col 1 -->
                 <div class="col-span-1 bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col items-center text-center">
                     <div class="w-16 h-16 rounded-full bg-teal-900/50 flex items-center justify-center mb-6 text-teal-400 text-3xl">
                         <i class="fas fa-seedling"></i>
@@ -372,7 +355,6 @@
                     </p>
                 </div>
                 
-                <!-- Col 2 -->
                 <div class="col-span-1 bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col items-center text-center relative overflow-hidden">
                     <div class="absolute -right-4 -top-4 text-8xl text-gray-700 opacity-20"><i class="fas fa-globe"></i></div>
                     <div class="w-16 h-16 rounded-full bg-blue-900/50 flex items-center justify-center mb-6 text-blue-400 text-3xl z-10">
@@ -384,7 +366,6 @@
                     </p>
                 </div>
 
-                <!-- Col 3 -->
                 <div class="col-span-1 bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 flex flex-col items-center text-center">
                     <div class="w-16 h-16 rounded-full bg-red-900/50 flex items-center justify-center mb-6 text-red-400 text-3xl">
                         <i class="fas fa-door-open"></i>
@@ -397,8 +378,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 7: Figuras Clave Fisiocracia -->
-<div class="slide items-start justify-center">
+        <div class="slide items-start justify-center">
     <div class="mb-6">
         <span class="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
             Autores Principales
@@ -408,7 +388,6 @@
     </div>
     
     <div class="grid md:grid-cols-2 gap-8 w-full">
-        <!-- Personaje 1 -->
         <div class="figure-card h-80 bg-gray-800 relative overflow-hidden rounded-xl cursor-pointer" onclick="openModal('François Quesnay', 'Médico de la corte del rey Luis XV y fundador de la escuela fisiócrata. Su obra maestra es el \'Tableau Économique\' (Cuadro Económico) de 1758. En este modelo circular, comparaba la economía y el flujo de riqueza con la circulación de la sangre en el cuerpo humano, mostrando cómo la riqueza agrícola fluía por las distintas clases sociales.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv98BHZfcVB5hKwgRAUjft_87axuZj4XkHWr54U-HR0qyKBrRtpxUSx_FC&s=10')">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv98BHZfcVB5hKwgRAUjft_87axuZj4XkHWr54U-HR0qyKBrRtpxUSx_FC&s=10" alt="Quesnay" class="w-full h-full object-cover object-top absolute inset-0">
             <div class="figure-overlay absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent p-6 flex flex-col justify-end transition-opacity duration-300">
@@ -421,7 +400,6 @@
             </div>
         </div>
 
-        <!-- Personaje 2 -->
         <div class="figure-card h-80 bg-gray-800 relative overflow-hidden rounded-xl cursor-pointer" onclick="openModal('Anne Robert Jacques Turgot', 'Político y economista francés. Fue Ministro de Finanzas de Luis XVI y trató de aplicar los principios fisiócratas. Decretó la libertad de comercio del grano y abolió los gremios y las corveas (trabajo forzado campesino), aunque sus reformas generaron gran resistencia aristocrática y mercantilista.', 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Portrait_de_Turgot.jpg')">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Portrait_de_Turgot.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Turgot" class="w-full h-full object-cover object-top absolute inset-0">
             <div class="figure-overlay absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent p-6 flex flex-col justify-end transition-opacity duration-300">
@@ -436,7 +414,6 @@
     </div>
 </div>
 
-        <!-- SLIDE 8: Conclusión -->
         <div class="slide items-center justify-center text-center">
             <div class="mb-8">
                 <span class="inline-block bg-white text-gray-900 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
@@ -445,8 +422,8 @@
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Comparativa y Conclusión</h2>
             </div>
             
-            <div class="w-full max-w-5xl bg-gray-800/50 rounded-2xl border border-gray-700 overflow-hidden shadow-2xl backdrop-blur-md">
-                <table class="w-full text-left border-collapse">
+            <div class="w-full max-w-5xl bg-gray-800/50 rounded-2xl border border-gray-700 overflow-hidden shadow-2xl backdrop-blur-md overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[600px]">
                     <thead>
                         <tr class="bg-gray-900 text-white border-b border-gray-700">
                             <th class="p-4 font-serif text-xl w-1/3">Criterio</th>
@@ -485,7 +462,6 @@
 
     </main>
 
-    <!-- Navigation Controls -->
     <div class="fixed bottom-6 left-0 w-full px-8 z-40 flex justify-between items-center pointer-events-none">
         <button id="prev-btn" class="nav-btn pointer-events-auto text-white w-12 h-12 rounded-full flex items-center justify-center opacity-50 cursor-not-allowed">
             <i class="fas fa-chevron-left text-xl"></i>
@@ -495,7 +471,6 @@
         </button>
     </div>
 
-    <!-- Modal for Characters -->
     <div id="image-modal" class="fixed inset-0 bg-black/80 z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 max-w-3xl w-full rounded-2xl border border-gray-700 overflow-hidden shadow-2xl relative transform scale-95 transition-transform duration-300 flex flex-col md:flex-row" id="modal-content-card">
             
@@ -521,13 +496,13 @@
         const nextBtn = document.getElementById('next-btn');
         const progressBar = document.getElementById('progress-bar');
         const currentDisplay = document.getElementById('current-slide-display');
+        const totalDisplay = document.getElementById('total-slides-display');
         
         let currentSlide = 0;
         const totalSlides = slides.length;
+        if (totalDisplay) totalDisplay.textContent = totalSlides;
 
-        // Initialize
-        function updatePresentation() {
-            // Update slides classes
+        function updateSlider() {
             slides.forEach((slide, index) => {
                 if (index === currentSlide) {
                     slide.classList.add('active');
@@ -536,103 +511,78 @@
                 }
             });
 
-            // Update Progress Bar
-            const progress = ((currentSlide) / (totalSlides - 1)) * 100;
-            progressBar.style.width = `${progress}%`;
+            if (currentDisplay) currentDisplay.textContent = currentSlide + 1;
+            if (progressBar) progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
 
-            // Update Header Numbers
-            currentDisplay.innerText = currentSlide + 1;
-
-            // Update Buttons State
             if (currentSlide === 0) {
-                prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                prevBtn.classList.remove('hover:scale-110', 'hover:bg-brand-gold');
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.cursor = 'not-allowed';
             } else {
-                prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                prevBtn.classList.add('hover:scale-110');
+                prevBtn.style.opacity = '1';
+                prevBtn.style.cursor = 'pointer';
             }
 
             if (currentSlide === totalSlides - 1) {
-                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                nextBtn.classList.remove('hover:scale-110');
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.cursor = 'not-allowed';
             } else {
-                nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                nextBtn.classList.add('hover:scale-110');
+                nextBtn.style.opacity = '1';
+                nextBtn.style.cursor = 'pointer';
             }
         }
 
-        // Event Listeners for Nav
         nextBtn.addEventListener('click', () => {
             if (currentSlide < totalSlides - 1) {
                 currentSlide++;
-                updatePresentation();
+                updateSlider();
             }
         });
 
         prevBtn.addEventListener('click', () => {
             if (currentSlide > 0) {
                 currentSlide--;
-                updatePresentation();
+                updateSlider();
             }
         });
 
-        // Keyboard Navigation support
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'Space') {
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                    updatePresentation();
-                }
-            } else if (e.key === 'ArrowLeft') {
-                if (currentSlide > 0) {
-                    currentSlide--;
-                    updatePresentation();
-                }
-            } else if (e.key === 'Escape') {
-                closeModal();
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlider();
+            } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
             }
         });
 
-        // Modal Logic
-        const modal = document.getElementById('image-modal');
-        const modalCard = document.getElementById('modal-content-card');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-desc');
-        const modalImg = document.getElementById('modal-img');
-
-        function openModal(title, description, imageSrc) {
-            modalTitle.innerText = title;
-            modalDesc.innerText = description;
-            modalImg.src = imageSrc;
+        // Modal Functions
+        function openModal(title, desc, imgSrc) {
+            const modal = document.getElementById('image-modal');
+            const modalCard = document.getElementById('modal-content-card');
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-desc').textContent = desc;
+            document.getElementById('modal-img').src = imgSrc;
             
             modal.classList.remove('hidden');
-            // Small delay to allow display:block to apply before transform transition
             setTimeout(() => {
-                modal.classList.remove('opacity-0');
                 modalCard.classList.remove('scale-95');
                 modalCard.classList.add('scale-100');
             }, 10);
         }
 
         function closeModal() {
-            modal.classList.add('opacity-0');
+            const modal = document.getElementById('image-modal');
+            const modalCard = document.getElementById('modal-content-card');
             modalCard.classList.remove('scale-100');
             modalCard.classList.add('scale-95');
-            
             setTimeout(() => {
                 modal.classList.add('hidden');
-            }, 300); // match transition duration
+            }, 300);
         }
 
-        // Close modal when clicking outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Initial setup run
-        updatePresentation();
+        // Initialize presentation state
+        updateSlider();
     </script>
 </body>
 </html>
